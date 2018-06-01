@@ -2,18 +2,18 @@
     <div class="container">
         <h1>Register New User for Stamp Rally</h1>
 
-        <form>
+        <form id="signUpForm" method="post" action="/sign_up">
             <div class="form-group">
                 <label for="firstName">First Name</label>
-                <input type="text" class="form-control" id="firstName" aria-describedby="firstName" placeholder="First name">
+                <input type="text" class="form-control" id="firstName" name="first_name" aria-describedby="firstName" placeholder="First name">
             </div>
             <div class="form-group">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" aria-describedby="lastName" placeholder="Last name">
+                <input type="text" class="form-control" id="lastName" name="last_name" aria-describedby="lastName" placeholder="Last name">
             </div>
             <div class="form-group">
                 <label for="userEmail">Email address</label>
-                <input type="email" class="form-control" id="userEmail" aria-describedby="emailHelp" placeholder="Enter email">
+                <input type="email" class="form-control" id="userEmail" name="email" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
                 <label for="userPassword">Password</label>
@@ -91,7 +91,9 @@
                     <input type="text" class="form-control" id="inputZip" placeholder="12345">
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Sign Up</button>
+            <button type="submit" id="submitSignUpButton" class="btn btn-primary">Sign Up</button>
         </form>
     </div>
 </main>
+
+<script src="/static/main.js"></script>

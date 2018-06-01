@@ -13,5 +13,15 @@
     "express": "^4.13.2",
     "express-handlebars": "^2.0.1",
     "express-session": "^1.11.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sjmiddlebrook/Stamp_Rally.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/sjmiddlebrook/Stamp_Rally/issues"
+  },
+  "homepage": "https://github.com/sjmiddlebrook/Stamp_Rally#readme"
 }
