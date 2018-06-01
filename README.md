@@ -1,3 +1,3 @@
 # Stamp Rally Login
 
-download repository and run `node app.js`
+download repository, run `npm install` for dependencies and run `node app.js`
