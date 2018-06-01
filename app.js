@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.set('view engine', 'handlebars');
 app.use('/static', express.static(__dirname + '/static'));
-app.set('port', 3000);
+app.set('port', process.argv[2]);
 
 
 app.get('/',function(req,res){
