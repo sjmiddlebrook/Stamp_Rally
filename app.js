@@ -41,6 +41,14 @@ app.post("/add_people", function (req, res) {
     res.redirect("/home");
 });
 
+app.get('/search_airfare',function(req,res){
+    res.render('search_airfare');
+});
+
+app.get('/search_trainfare',function(req,res){
+    res.render('search_trainfare');
+});
+
 app.use(function(req,res){
     res.status(404);
     res.render('404');
