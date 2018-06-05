@@ -58,9 +58,34 @@ app.get('/stamp_locations',function(req,res){
             res.write(JSON.stringify(error));
             res.end();
         } else {
-            console.log(results);
             context.stamps = results;
             res.render('stamp_locations', context);
+        }
+    });
+});
+
+app.get('/stamp_history',function(req,res){
+    var context = {};
+    mysql.pool.query("SELECT * FROM stamps", function(error, results){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        } else {
+            context.stamps = results;
+            res.render('stamp_history', context);
+        }
+    });
+});
+
+app.get('/stamp_itinerary',function(req,res){
+    var context = {};
+    mysql.pool.query("SELECT * FROM stamps", function(error, results){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        } else {
+            context.stamps = results;
+            res.render('stamp_itinerary', context);
         }
     });
 });
