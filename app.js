@@ -66,7 +66,7 @@ app.get('/stamp_locations',function(req,res){
 
 app.get('/stamp_history',function(req,res){
     var context = {};
-    mysql.pool.query("SELECT * FROM stamps", function(error, results){
+    mysql.pool.query("SELECT * FROM stamps WHERE visited = TRUE", function(error, results){
         if(error){
             res.write(JSON.stringify(error));
             res.end();
@@ -79,7 +79,7 @@ app.get('/stamp_history',function(req,res){
 
 app.get('/stamp_itinerary',function(req,res){
     var context = {};
-    mysql.pool.query("SELECT * FROM stamps", function(error, results){
+    mysql.pool.query("SELECT * FROM stamps WHERE in_itinerary = TRUE", function(error, results){
         if(error){
             res.write(JSON.stringify(error));
             res.end();
