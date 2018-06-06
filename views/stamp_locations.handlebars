@@ -1,15 +1,15 @@
 <main role="main">
     <div class="container">
-        <a href="home"><h1>Stamp Rally</h1></a>
+        <a href="/home"><h1>Stamp Rally</h1></a>
         <h3>All Stamp Locations</h3>
-        <table class="table">
+        <table class="table table-striped">
             <thead>
             <th>Name</th>
             <th>Type</th>
             <th>Description</th>
-            <th>Background</th>
-            <th>Hours at Destination</th>
+            <th>Duration (hours)</th>
             <th>Rating</th>
+            <th>Add to Itinerary</th>
             </thead>
             <tbody>
             {{#each stamps}}
@@ -17,13 +17,19 @@
                     <td>{{name}}</td>
                     <td>{{type}}</td>
                     <td>{{description}}</td>
-                    <td>{{background}}</td>
                     <td>{{duration}}</td>
                     <td>{{rating}}</td>
+                    <td class="text-center">
+                        {{#unless in_itinerary}}
+                        <a onclick="add_to_itinerary({{id}})">
+                            <i class="fas fa-plus" style="color: green; cursor: pointer;"></i>
+                        </a>
+                        {{/unless}}
+                    </td>
                 </tr>
             {{/each}}
             </tbody>
         </table>
     </div>
-
 </main>
+<script src="/static/stamp.js"></script>

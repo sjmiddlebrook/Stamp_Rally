@@ -1,0 +1,36 @@
+
+<main role="main">
+    <div class="container">
+        <a href="/home"><h1>Stamp Rally</h1></a>
+        <h3>Update {{stamp.name}}</h3>
+        <form id="stampUpdateForm" data-id="{{stamp.id}}">
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="stampVisited">Have you visited <strong>{{stamp.name}}</strong>?</label>
+                    <select class="form-control" id="stampVisited" name="visited">
+                        <option value="0" {{#unless stamp.visited}}selected{{/unless}}>No</option>
+                        <option value="1" {{#if stamp.visited}}selected{{/if}}>Yes</option>
+                    </select>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="form-group col-md-5">
+                    <label for="stampRating">Stamp Rating</label>
+                    <select class="form-control" id="stampRating" data-selected="{{stamp.rating}}" name="stamp_rating">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+            <div class="form-group">
+                <label for="stampUserComments">Comments on Stamp</label>
+                <textarea class="form-control" id="stampUserComments" rows="3" name="user_comments">{{stamp.user_comments}}</textarea>
+            </div>
+            <button id="saveStampInfo" class="btn btn-primary">Save Updated Stamp Information</button>
+        </form>
+    </div>
+</main>
+<script src="/static/stamp.js"></script>

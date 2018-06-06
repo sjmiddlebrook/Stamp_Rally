@@ -1,24 +1,18 @@
 <main role="main">
     <div class="container">
-        <a href="home"><h1>Stamp Rally</h1></a>
+        <a href="/home"><h1>Stamp Rally</h1></a>
         <h1>Stamps You Have Visited</h1>
         <table class="table">
             <thead>
             <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Background</th>
-            <th>Hours at Destination</th>
+            <th>User Comments</th>
             <th>Rating</th>
             </thead>
             <tbody>
             {{#each stamps}}
                 <tr>
                     <td>{{name}}</td>
-                    <td>{{type}}</td>
-                    <td>{{description}}</td>
-                    <td>{{background}}</td>
-                    <td>{{duration}}</td>
+                    <td>{{user_comments}}</td>
                     <td>{{rating}}</td>
                 </tr>
             {{/each}}

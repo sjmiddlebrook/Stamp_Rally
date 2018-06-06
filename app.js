@@ -90,6 +90,66 @@ app.get('/stamp_itinerary',function(req,res){
     });
 });
 
+app.put('/edit_stamp/', function (req, res) {
+
+    var sql = "UPDATE stamps SET visited=?, user_comments=?, rating=? WHERE id=?";
+    var inserts = [req.body.visited, req.body.user_comments, req.body.rating, req.body.id];
+    mysql.pool.query(sql,inserts,function(error, results, fields){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        }else{
+            res.status(200);
+            res.end();
+        }
+    });
+});
+
+app.put('/remove_stamp_itinerary/:id', function (req, res) {
+
+    var sql = "UPDATE stamps SET in_itinerary=0 WHERE id=?";
+    var inserts = [req.params.id];
+    mysql.pool.query(sql,inserts,function(error, results, fields){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        }else{
+            res.status(200);
+            res.end();
+        }
+    });
+});
+
+app.put('/add_stamp_itinerary/:id', function (req, res) {
+
+    var sql = "UPDATE stamps SET in_itinerary=1 WHERE id=?";
+    var inserts = [req.params.id];
+    mysql.pool.query(sql,inserts,function(error, results, fields){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        }else{
+            res.status(200);
+            res.end();
+        }
+    });
+});
+
+app.get('/stamp_edit/:id',function(req,res){
+    var context = {};
+    var sql = "SELECT * FROM stamps WHERE id = ?";
+    var inserts = [req.params.id];
+    mysql.pool.query(sql, inserts, function(error, results){
+        if(error){
+            res.write(JSON.stringify(error));
+            res.end();
+        } else {
+            context.stamp = results[0];
+            res.render('stamp_edit', context);
+        }
+    });
+});
+
 app.use(function(req,res){
     res.status(404);
     res.render('404');

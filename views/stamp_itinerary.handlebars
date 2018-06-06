@@ -1,25 +1,25 @@
 <main role="main">
     <div class="container">
-        <a href="home"><h1>Stamp Rally</h1></a>
+        <a href="/home"><h1>Stamp Rally</h1></a>
         <h3>Stamps in your Itinerary</h3>
         <table class="table">
             <thead>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
-            <th>Background</th>
-            <th>Hours at Destination</th>
-            <th>Rating</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                <th>Duration (hours)</th>
+                <th>Remove From Itinerary</th>
             </thead>
             <tbody>
             {{#each stamps}}
                 <tr>
-                    <td>{{name}}</td>
+                    <td><a href="/stamp_edit/{{id}}">{{name}}</a></td>
                     <td>{{type}}</td>
                     <td>{{description}}</td>
-                    <td>{{background}}</td>
                     <td>{{duration}}</td>
-                    <td>{{rating}}</td>
+                    <td class="text-center">
+                        <a onclick="remove_from_itinerary({{id}})"><i class="fas fa-trash-alt" style="color: red; cursor: pointer;"></i></a>
+                    </td>
                 </tr>
             {{/each}}
             </tbody>
@@ -27,3 +27,4 @@
     </div>
 
 </main>
+<script src="/static/stamp.js"></script>
