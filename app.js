@@ -51,6 +51,10 @@ app.get('/search_trainfare',function(req,res){
     res.render('search_trainfare');
 });
 
+app.get('/user_preferences',function(req,res){
+    res.render('user_preferences');
+});
+
 app.get('/stamp_locations',function(req,res){
     var context = {};
     mysql.pool.query("SELECT * FROM stamps", function(error, results){
