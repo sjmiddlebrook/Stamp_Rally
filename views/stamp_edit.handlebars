@@ -25,6 +25,13 @@
                 </div>
                 <div class="col-md-1"></div>
             </div>
+            <div class="form-row">
+                <div class="form-group col-md-5">
+                    <label for="stampTime">Update time spent?</label>
+                    <input class="form-control" type="number" value="{{stamp.duration}}" id="stampTime" name="duration">
+                </div>
+                <div class="col-md-7"></div>
+            </div>
             <div class="form-group">
                 <label for="stampUserComments">Comments on Stamp</label>
                 <textarea class="form-control" id="stampUserComments" rows="3" name="user_comments">{{stamp.user_comments}}</textarea>

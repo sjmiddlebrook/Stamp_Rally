@@ -28,6 +28,7 @@ function add_to_itinerary(stamp_id) {
 $("#stampUpdateForm").on("submit", function(event) {
     event.preventDefault();
     var form_data = $(this).serializeArray();
+    console.log(form_data);
     var data = {};
     if (form_data[0].value === "0") {
         data.visited = 0;
@@ -35,8 +36,10 @@ $("#stampUpdateForm").on("submit", function(event) {
         data.visited = 1;
     }
     data.rating = parseInt(form_data[1].value);
-    data.user_comments = form_data[2].value;
+    data.duration = parseFloat(form_data[2].value);
+    data.user_comments = form_data[3].value;
     data.id = parseInt($("#stampUpdateForm").attr('data-id'));
+    console.log(data);
     $.ajax({
         url: '/edit_stamp/',
         type: 'PUT',
